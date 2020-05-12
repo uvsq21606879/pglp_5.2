@@ -81,11 +81,28 @@ public class GroupePersonnel implements Iterable<InterfacePersonnel>, Serializab
 		return this;
 	}
 	
+    /**
+     * retourner la liste des InterfacePersonnel.
+     * @return retourne la liste des InterfacePersonnel
+     */
+    @SuppressWarnings("unchecked")
+    public ArrayList<InterfacePersonnel> getList() {
+        return (ArrayList<InterfacePersonnel>) Personnels.clone();
+    }
+
+	
 	
 	public int getIdPersonnel() {
 		return idPersonnel;
 	}
 	
+	/**
+     * modifier l'identifiant.
+     * @param newId nouvel identifiant
+     */
+    public void setId(final int newId) {
+        idPersonnel = newId;
+    }
 	/**
      * Get un iterator sur la liste du personnel de ce composite.
      * @return iterateur sur la liste des personnel de ce composite.
@@ -154,6 +171,15 @@ public class GroupePersonnel implements Iterable<InterfacePersonnel>, Serializab
 			E.printStackTrace();
 		}
 		return cp;
+	}
+	
+	/**
+     * Retourner l'identifiant de ce composite.
+     * @return l'identifiant
+     */
+	public int getIdComposite() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

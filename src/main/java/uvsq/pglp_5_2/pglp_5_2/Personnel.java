@@ -218,5 +218,18 @@ public class Personnel implements Serializable, InterfacePersonnel {
 	}
 
 
+	public int getIdComposite() {
+		// TODO Auto-generated method stub
+		return idPersonnel;
+	}
+	
+	 /**
+     * modifier l'identifiant du personnel.
+     * @param newId nouvel identifiant
+     */
+    public void setIdPersonel(final int newId) {
+        idPersonnel = newId;
+    }
+
 }
 
