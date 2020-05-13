@@ -39,9 +39,10 @@ public class DaoComposite implements DAO<GroupePersonnel>, Serializable {
 
 	public GroupePersonnel get(int id) {
 
-		for (GroupePersonnel Gp : List)
-			if (Gp.getIdPersonnel() == id) 
-				return Gp;
+		for (GroupePersonnel Gp : List) {
+			if (Gp.getIdPersonnel() == id) {
+				return Gp;}
+				}
 
 		return null;
 	}

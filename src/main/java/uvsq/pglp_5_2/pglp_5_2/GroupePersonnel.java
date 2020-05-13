@@ -51,9 +51,9 @@ public class GroupePersonnel implements Iterable<InterfacePersonnel>, Serializab
      * retourner un CompositePersonnels.
      * @return Un string qui represente le groupe personnel.
      */
-	@Override
+
 	public String toString() {
-		String S = "IdPersonnel = " + idPersonnel + "\n";
+		String S = "Id_Personnel = " + idPersonnel + "\n";
 		for (InterfacePersonnel I : Personnels) {
 			S += I.toString();
 		}

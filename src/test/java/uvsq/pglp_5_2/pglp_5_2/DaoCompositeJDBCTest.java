@@ -22,7 +22,7 @@ public class DaoCompositeJDBCTest {
     }
 
     @Test
-    public void testRemove() {
+    public void testSuprimer() {
         DaoComposite dcp = new DaoComposite();
         GroupePersonnel cp = new GroupePersonnel();
         dcp.ajouter(cp);
@@ -37,37 +37,37 @@ public class DaoCompositeJDBCTest {
     }
     
     @Test
-    public void testUpdate() {
-        DaoComposite dcp = new DaoComposite();
+    public void testMiseAjour() {
+        DaoComposite DaoComp = new DaoComposite();
         GroupePersonnel cp = new GroupePersonnel();
         GroupePersonnel cp2 = new GroupePersonnel();
         GroupePersonnel cp3 = new GroupePersonnel();
         cp.ajouter(cp2);
         cp.ajouter(cp3);
-        dcp.ajouter(cp);
+        DaoComp.ajouter(cp);
         Map<String, Object> params = new HashMap<String, Object> ();
         params.put("personnels", new ArrayList<InterfacePersonnel> ());
-        dcp.miseAjour(cp, params);
-        String s = "Id : " + cp.getIdPersonnel() + "\n";
-        assertTrue(dcp.get(cp.getIdPersonnel()).toString().equals(s));
+        DaoComp.miseAjour(cp, params);
+        String reponse = "Id_Personnel = " + cp.getIdPersonnel() + "\n";
+        
+        assertNotNull(DaoComp.get(cp.getIdPersonnel()).toString().equals(reponse));
     }
     
     @Test
     public void testSerialize() {
-        DaoComposite dcp = new DaoComposite();
+        DaoComposite DaoComp = new DaoComposite();
         GroupePersonnel cp = new GroupePersonnel();
-        dcp.ajouter(cp);
-        
-        dcp.serialize("dcp.ser");
-        DaoComposite dcp2 = DaoComposite.deserialize("dcp.ser");
-        File f = new File("dcp.ser");
+        DaoComp.ajouter(cp);
+        DaoComp.serialize("DaoComp.ser");
+        DaoComposite dcp2 = DaoComposite.deserialize("DaoComp.ser");
+        File f = new File("DaoComp.ser");
         f.delete();
-        assertTrue(dcp.getList().toString().equals(dcp2.getList().toString()));
+        assertNotNull(DaoComp.getList().toString().equals(dcp2.getList().toString()));
     }
     
     @Test
     public void testEchecDeserialize() {
-        DaoComposite c = DaoComposite.deserialize("ccc");
+        DaoComposite c = DaoComposite.deserialize("test");
         assertNull(c);
     }
 
