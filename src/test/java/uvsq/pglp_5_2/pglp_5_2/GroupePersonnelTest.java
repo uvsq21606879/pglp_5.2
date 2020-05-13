@@ -9,14 +9,15 @@ import org.junit.Test;
 
 
 public class GroupePersonnelTest {
+	
 
 	@Test
-	public void GroupePersonnelTest() {
+	public void GroupPersonnelTest() {
 		GroupePersonnel personnel = new GroupePersonnel();
 		Iterator<InterfacePersonnel> ItPersonnel = personnel.iterator();
 		assertFalse(ItPersonnel.hasNext());
 	}
-	
+	@Test
 	public void ajouterTest() {
 		GroupePersonnel personnel = new GroupePersonnel();
 		personnel.ajouter(new GroupePersonnel());
@@ -30,9 +31,9 @@ public class GroupePersonnelTest {
 	    GroupePersonnel personnel2 = new GroupePersonnel();
         personnel.ajouter(personnel2);
         
-        personnel.serialize("cp.ser");
-        GroupePersonnel personnel3 = GroupePersonnel.deserialize("cp.ser");
-        File f = new File("cp.ser");
+        personnel.serialize("CompositeP.ser");
+        GroupePersonnel personnel3 = GroupePersonnel.deserialize("CompositeP.ser");
+        File f = new File("CompositeP.ser");
         f.delete();
         assertTrue(personnel.toString().equals(personnel3.toString()));
 	}
