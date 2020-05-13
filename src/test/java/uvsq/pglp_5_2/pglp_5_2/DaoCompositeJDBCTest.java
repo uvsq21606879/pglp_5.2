@@ -36,6 +36,21 @@ public class DaoCompositeJDBCTest {
         assertNull(dcp.get(0));
     }
     
+    @Test
+    public void testUpdate() {
+        DaoComposite dcp = new DaoComposite();
+        GroupePersonnel cp = new GroupePersonnel();
+        GroupePersonnel cp2 = new GroupePersonnel();
+        GroupePersonnel cp3 = new GroupePersonnel();
+        cp.ajouter(cp2);
+        cp.ajouter(cp3);
+        dcp.ajouter(cp);
+        Map<String, Object> params = new HashMap<String, Object> ();
+        params.put("personnels", new ArrayList<InterfacePersonnel> ());
+        dcp.miseAjour(cp, params);
+        String s = "Id : " + cp.getIdPersonnel() + "\n";
+        assertTrue(dcp.get(cp.getIdPersonnel()).toString().equals(s));
+    }
     
     @Test
     public void testSerialize() {
