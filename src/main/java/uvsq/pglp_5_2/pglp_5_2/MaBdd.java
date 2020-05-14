@@ -35,7 +35,7 @@ public abstract class MaBdd {
 	 */
 	public static void CreateDataBase() throws SQLException {
 		DriverManager.getConnection(
-				"jdbc:derby:compositePattern;create=true");
+				"jdbc:derby:MaBdd;create=true");
 	}
 
 
